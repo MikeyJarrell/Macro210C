@@ -1,0 +1,209 @@
+\documentclass[answers]{exam}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[comma,authoryear]{natbib}
+\usepackage{theorem}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{textcomp}
+
+
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc}
+
+\usepackage{mathabx}
+
+\usepackage{url}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\1}{\mathbf{1}}
+
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
+
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
+
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\begin{document}
+
+\title{Econ 210C Homework 3}
+\author{Mikey}
+
+\maketitle
+
+\section*{1. Sticky Wage Model}
+Instead of assuming that prices are sticky for one period, we now assume that nominal wages are sticky for one period,
+\begin{align*}
+	W_1 = W_0
+\end{align*}
+The short-run equilibrium is
+\begin{align*}
+	Y_1&=A_1N_{1}  \\
+	\color{red}W_1&\color{red}= W_0  \\
+	\frac{W_1}{P_1}&=A_1 \\
+	Y_1&=C_1 \\
+	\frac{M_1}{P_1}&=\zeta^{1/\nu}\left(1-\frac{1}{Q_1}\right)^{-1/\nu}C_{1}^{\gamma/\nu}\\
+	1&=\beta E_1\left\{Q_1 \frac{P_1}{P_{2}} \frac{C_{2}^{-\gamma}}{C_{1}^{-\gamma}}\right\} 
+\end{align*}
+The long-run equilibrium ($t\ge 2$) is
+\begin{align*}
+	Y_t&=A_tN_{t}  \\
+	\frac{W_t}{P_t}&= A_t  \\
+	\frac{W_t}{P_t}&=\frac{\chi N_t^\varphi}{C_t^{-\gamma}} \\
+	Y_t&=C_t \\
+	\frac{M_t}{P_t}&=\zeta^{1/\nu}\left(1-\frac{1}{Q_t}\right)^{-1/\nu}C_{t}^{\gamma/\nu}\\
+	1&=\beta E_t\left\{Q_t \frac{P_t}{P_{t+1}} \frac{C_{t+1}^{-\gamma}}{C_{t}^{-\gamma}}\right\} 
+\end{align*}
+
+\begin{enumerate}[(a)]
+	\item Are firms on their labor curve? Explain.
+	\begin{solution}
+        Yes. I'm going to assume that the short-run wage is not equal to the long-run wage, i.e., $W_0 \neq W_t$ where $t \geq 2$, otherwise this question won't be very interesting.
+
+        Suppose, WLOG, that $W_0$ is lower than what the firm would want it to be. What happens? Well, we know that the real wage is equal to the marginal product of labor, i.e., $\frac{W_1}{P_1}=A_1$, so if $W_0$ is too low, then, assuming $A_1$ is exogenous, then $P_1$ must adjust downward somehow. Regardless, the MPL equation holds, so firms must be on their labor demand curve.
+    \end{solution}
+	\item Are households on their labor supply curve? Explain.
+	\begin{solution}
+        The first thing to notice is that one equation that is present in the long run equilibrium is not present in the short-run equilibrium:
+        \begin{align*}
+            \frac{W_t}{P_t}& =\frac{\chi N_t^\varphi}{C_t^{-\gamma}} \\
+            C_t^{-\gamma} & =\chi \frac{P_t}{W_t} N_t^\varphi \\
+             \frac{\partial U}{\partial C_t} & = - \frac{P_t}{W_t} \frac{\partial U}{\partial N_t}
+        \end{align*}
+        This is the household labor supply equation. In the long run, households set their marginal consumption equal to the marginal utility of forgoing one unit of labor.
+
+        But in the short run, households are not doing that. Instead, they base their consumption decision on the Euler equation (setting marginal utility of consumption today equal to discounted marginal utility of consumption tomorrow) and the money demand equation (setting marginal utility of consumption equal to the marginal utility of holding money). That sets the level of output.
+    \end{solution}
+	\item How does the labor market clear?
+	\begin{solution}
+        Based on the Euler equation, the money demand equation, and (exogenous and endogenous) prices, households make consumption decisions. That determines the level of output. Firms produce to exactly clear the consumption good market, demanding labor sufficient setting wage equal to MPL. Households supply labor exactly to meet this demand, whether they like it or not.
+    \end{solution}
+	\item Solve for the long-run steady state.
+	\begin{solution}
+        Denote long-run parameters without subscripts. First, note that the Euler equation simplifies to
+        \begin{align*}
+            1&=\beta \mathbb{E}\left\{Q \frac{P}{P} \frac{C^{-\gamma}}{C^{-\gamma}}\right\} \\
+            &=\beta \mathbb{E}\left\{Q\right\} \\
+            Q & = \frac{1}{\beta}
+        \end{align*}
+        Then we can solve for labor by imposing market clearing $C = Y = AN$.
+        \begin{align*}
+            A & = \frac{W}{P} =\frac{\chi N^\varphi}{C^{-\gamma}} \\
+            A & =\frac{\chi N^\varphi}{(AN)^{-\gamma}} \\
+            A^{1 - \gamma} & = \chi N^{\varphi+\gamma} \\
+            N & =\left(\frac{A^{1 - \gamma}}{\chi}\right)^{\frac{1}{\varphi + \gamma}}
+        \end{align*}
+        Then we can easily solve for consumption and output.
+        \begin{align*}
+            C & = Y \\
+            & = AN \\
+            & = A\left(\frac{A^{1 - \gamma}}{\chi}\right)^{\frac{1}{\varphi + \gamma}} \\
+            & = A^{1 + \frac{1 - \gamma}{\varphi + \gamma}}\chi^{\frac{-1}{\varphi + \gamma}} \\
+            & = A^{\frac{\varphi + 1}{\varphi + \gamma}}\chi^{\frac{-1}{\varphi + \gamma}}
+        \end{align*}
+        And finally, money.
+        \begin{align*}
+            \frac{M}{P} & = \zeta^{1/\nu}\left(1-\frac{1}{\frac{1}{\beta}}\right)^{-1/\nu}\left(A^{\frac{\varphi + 1}{\varphi + \gamma}}\chi^{\frac{-1}{\varphi + \gamma}}\right)^{\gamma/\nu} \\
+            & = \zeta^{1/\nu}\left(1-\beta\right)^{-1/\nu}\left(\frac{A^{\varphi + 1}}{\chi}\right)^{\frac{\gamma}{\nu(\varphi + \gamma)}}
+        \end{align*}
+        Now we half (almost) every variable in terms of parameters.
+    \end{solution}
+	\item Does the Classical Dichotomy hold in the long-run? Explain.
+	\begin{solution}
+        Yes. Real variables ($C$, $Y$, $N$, $M/P$, $W/P$, $Q/P$) are independent of price levels. So any change in price ($P$, $W$, $Q$) will affect the other prices, but have no effect on any real variable. 
+    \end{solution}
+	\item Solve for output and the money market equilibrium in the short-run.
+	\begin{solution}
+        First, solve for prices.
+        \begin{align*}
+            \frac{W_0}{P_1} & = A_1 \\
+            P_1 & = \frac{W_0}{A_1}
+        \end{align*}
+        This means that effectively, $P_1$ is fixed. I suspect this means that our results will look a lot like our results from class when we fixed $P_1 = P_0$, but let's find out.
+        
+        Now we impose that $t=2$ parameters are equal to long-run steady-state parameters. Then we can solve for consumption, noting that all the future paramters are known so we can drop the expectation.
+        \begin{align*}
+            1&=\beta E_1\left\{Q_1 \frac{P_1}{P} \frac{C^{-\gamma}}{C_{1}^{-\gamma}}\right\} \\
+            C_{1}^{-\gamma}&=\beta Q_1 \frac{W_0}{A_1 P} C^{-\gamma} \\
+            C_1&=\left(\beta Q_1 \frac{W_0}{A_1 P}\right)^{\frac{-1}{\gamma}} C \\
+            &=\left(\frac{A_1 P}{\beta Q_1 W_0}\right)^{\frac{1}{\gamma}} C\\
+            &=\left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}} C
+        \end{align*}
+        Assuming $A_1$ is given, then we \textit{almost} have consumption solved for in terms of paramteres (Our only troublemaker is $Q_1$): $C_1$ is some scaled version of $C$ that depends on prices and the discount factor --- which does, in fact, look like what we had in class. We could try to solve for it. Next, let's do the money demand equation.
+        \begin{align*}
+            \frac{M_1}{P_1} = M_1\frac{A_1}{W_0} & = \zeta^{1/\nu}\left(1-\frac{1}{Q_1}\right)^{-1/\nu}C_{1}^{\gamma/\nu} \\
+            & =\zeta^{1/\nu}\left(1-\frac{1}{Q_1}\right)^{-1/\nu} \left(\left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}} C\right)^{\gamma/\nu} \\
+            & =\zeta^{1/\nu} C^{\gamma/\nu} \frac{\left(1-\beta\right)^{-1/\nu}}{\left(1-\beta\right)^{-1/\nu}} \left(1-\frac{1}{Q_1}\right)^{-1/\nu} \left(\left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}}\right)^{\gamma/\nu} \\
+            & =\frac{M}{P} \frac{1}{\left(1-\beta\right)^{-1/\nu}} \left(1-\frac{1}{Q_1}\right)^{-1/\nu} \left(\left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}}\right)^{\gamma/\nu} \\
+            & = \frac{M}{P} \left(1-\beta-\frac{1-\beta}{Q_1}\right)^{-1/\nu} \left(\left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}}\right)^{\gamma/\nu}
+        \end{align*}
+        Again, we end up with the steady state scaled by some prices and the discount factor, and, again, it looks like what we had in class. Finally, let's solve for labor.
+        \begin{align*}
+            N_1 & = \frac{C_1}{A_1} \\
+            & = \frac{P_1}{W_0} C_1 \\
+            &=\frac{P_1}{W_0} \left(\frac{1}{\beta Q_1} \frac{P}{P_1}\right)^{\frac{1}{\gamma}} C
+        \end{align*}
+        Notably, this looks \textit{nothing} like the steady state labor supply equation (and we didn't solve for $N$ in class). This is because households are off their labor supply curve in the short run --- they just supply labor such that $Y_1 = C_1$.
+    \end{solution}
+	\item Does the Classical Dichotomy hold in the short-run? 
+	\begin{solution}
+        The fact that $W_0$ shows up directly in all of our equations for the real variables ($C_1$, $N_1$, $M_1$) is direct evidence that prices matter, i.e., the Classical Dichotemy doesn't hold because we can't separate the real and the nominal variables.
+    \end{solution}
+	\item Explain intuitively (in words) how an increase in the money supply affects output in the short-run.
+	\begin{solution}
+        Increasing the money supply means that, because price $P_1$ is fixed, that the real value of money held by households must increase. In order to convince households to do this, they must be convinced to forgo investment or consumption. Price of consumption is fixed at $P_1 = W_0 / A_1$, so the real interest rate $Q_1 (P_1 / P)$ must adjust, but $(P_1 / P)$ is fixed, so $Q_1$ must fall.
+        
+        This ripples through the economy. $C_1$ increases as a result the Euler equation: becasue households are equilibrating the marginal utility of consumption today and the marginal utility of one unit of consumption tomorrow by forgoing one unit of consumption today, and the latter is an increasing function of the return on investment $Q_1(P_1 / P)$ (savings today are scaled up tomorrow by the interest rate), so saving for tomorrow suddenly looks less appealing. The increased consumption needs to be supported by increased output and, therefore, increased labor.
+    \end{solution}
+	\item How does productivity affect output? Explain intuitively.
+	\begin{solution}
+        Increasing productivity decreases the price of the consumption good $P_1$, so households will want to consume more and save less, due to the Euler equation. Simultaneously, the falling $P_1$ descreases the real interest rate, making savings less appealing, households want to hold less money, so this further increases consumption. Also, the falling $P_1$ increases the real wage $\frac{W_0}{P_1}$, but households are not on their labor supply curve, so this does not affect their decisionmaking. Firms have no trouble meeting the increased demand: this is partially through increased productivity and partially through increased labor demand/supply.
+        
+        Overall, higher productivity means lower prices, lower interest rate, higher consumption, higher output, and higher labor.
+    \end{solution}
+	\item Derive the labor wedge. Is it procyclical or countercyclical?
+	\begin{solution}
+        \begin{align*}
+            1 - \tau^N_1 & = \frac{MRS_1}{MPL_1} \\
+            & = \frac{\chi {N_1}^\varphi C_1^\gamma}{(1-\alpha)Y_1/N_1} \\
+            & = \frac{1}{(1-\alpha)} \chi {N_1}^{\varphi+1} C_1^{\gamma-1} \\
+            & = \frac{1}{(1-\alpha)} \chi \left(\frac{C_1}{A_1}\right)^{\varphi+1} C_1^{\gamma-1} \\
+            & = \frac{1}{(1-\alpha)} \chi {A_1}^{-\varphi-1} C_1^{\gamma+\varphi} \\
+            & = \frac{1}{(1-\alpha)} \chi {A_1}^{-\varphi-1} \left(\left(\frac{1}{\beta Q_1} \frac{P A_1}{W_0}\right)^{\frac{1}{\gamma}} C \right)^{\gamma+\varphi} \\
+            & = \frac{1}{(1-\alpha)} \chi A_1^{-\varphi - 1} \left(\frac{1}{\beta Q_1} \frac{P A_1}{W_0}\right)^{1 +\frac{1}{\gamma}}  C^{\gamma+\varphi} \\
+            & = \frac{1}{(1-\alpha)} \chi A_1^{\frac{1}{\gamma}-\varphi} \left(\frac{1}{\beta Q_1} \frac{P}{W_0}\right)^{1 +\frac{1}{\gamma}}  C^{\gamma+\varphi}
+        \end{align*}
+        The wedge is procyclical if it increases with $A_1$. Assuming $\gamma, \varphi, \alpha \in (0,1)$, then all those terms in the above equation are positive and then $(1-\tau_1^N)$ is an increasing function of $A_1$. But is the wage $(1-\tau_1^N)$ or just $\tau_1^N$? Assuming it's the latter, then the wedge is decreasing with $A_1$, so it is countercyclical.
+    \end{solution}
+	\item What moments of the data would you use to discriminate between the predictions of the sticky price and the sticky wage model?
+	\begin{solution}
+        \begin{center}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                & Sticky Prices & Sticky Wages \\
+                \hline
+                $\partial P/\partial A$ & 0 & $-$ \\
+                $\partial Y/\partial A$ & 0 & $+$ \\
+                $\partial N/\partial A$ & $-$ & $+$ \\
+                $\partial W/\partial M$ & $+$ & 0 \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{solution}
+\end{enumerate}
+
+
+
+\end{document}
