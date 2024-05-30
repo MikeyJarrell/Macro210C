@@ -88,7 +88,7 @@ The long-run equilibrium ($t\ge 2$) is
     \end{solution}
 	\item How does the labor market clear?
 	\begin{solution}
-        Based on the Euler equation, the money demand equation, and (exogenous and endogenous) prices, households make consumption decisions. That determines the level of output. Firms produce to exactly clear the consumption good market, demanding labor sufficient setting wage equal to MPL. Households supply labor exactly to meet this demand, whether they like it or not.
+        We start by finding price $P_1$ such that $\frac{W_1}{P_1} = A_1$. Based on the Euler equation, the money demand equation, and (exogenous and endogenous) prices, households make consumption decisions. That determines the level of output. Firms produce to exactly clear the consumption good market, demanding labor sufficient setting wage equal to MPL. Households supply labor exactly to meet this demand, whether they like it or not.
     \end{solution}
 	\item Solve for the long-run steady state.
 	\begin{solution}
@@ -118,11 +118,11 @@ The long-run equilibrium ($t\ge 2$) is
             \frac{M}{P} & = \zeta^{1/\nu}\left(1-\frac{1}{\frac{1}{\beta}}\right)^{-1/\nu}\left(A^{\frac{\varphi + 1}{\varphi + \gamma}}\chi^{\frac{-1}{\varphi + \gamma}}\right)^{\gamma/\nu} \\
             & = \zeta^{1/\nu}\left(1-\beta\right)^{-1/\nu}\left(\frac{A^{\varphi + 1}}{\chi}\right)^{\frac{\gamma}{\nu(\varphi + \gamma)}}
         \end{align*}
-        Now we half (almost) every variable in terms of parameters.
+        Now we have (almost) every variable in terms of parameters.
     \end{solution}
 	\item Does the Classical Dichotomy hold in the long-run? Explain.
 	\begin{solution}
-        Yes. Real variables ($C$, $Y$, $N$, $M/P$, $W/P$, $Q/P$) are independent of price levels. So any change in price ($P$, $W$, $Q$) will affect the other prices, but have no effect on any real variable. 
+        Yes. Real variables ($C$, $Y$, $N$, $M/P$, $W/P$, $Q/P$) are independent of price levels. So any change in price ($P$, $W$, $Q$) will affect the other prices, but have no effect on any real variable. Notice that prices don't show up in any of our expressions for real things. 
     \end{solution}
 	\item Solve for output and the money market equilibrium in the short-run.
 	\begin{solution}
@@ -163,29 +163,23 @@ The long-run equilibrium ($t\ge 2$) is
     \end{solution}
 	\item Explain intuitively (in words) how an increase in the money supply affects output in the short-run.
 	\begin{solution}
-        Increasing the money supply means that, because price $P_1$ is fixed, that the real value of money held by households must increase. In order to convince households to do this, they must be convinced to forgo investment or consumption. Price of consumption is fixed at $P_1 = W_0 / A_1$, so the real interest rate $Q_1 (P_1 / P)$ must adjust, but $(P_1 / P)$ is fixed, so $Q_1$ must fall.
+        Increasing the money supply means that, because price $P_1$ is fixed, that the real value of money held by households must increase. In order to convince households to do this, they must choose to forgo investment or consumption. Price of consumption is fixed at $P_1 = W_0 / A_1$, so the real interest rate $Q_1 (P_1 / P)$ must adjust, but $(P_1 / P)$ is fixed, so $Q_1$ must fall.
         
-        This ripples through the economy. $C_1$ increases as a result the Euler equation: becasue households are equilibrating the marginal utility of consumption today and the marginal utility of one unit of consumption tomorrow by forgoing one unit of consumption today, and the latter is an increasing function of the return on investment $Q_1(P_1 / P)$ (savings today are scaled up tomorrow by the interest rate), so saving for tomorrow suddenly looks less appealing. The increased consumption needs to be supported by increased output and, therefore, increased labor.
+        This ripples through the economy. $C_1$ increases as a result the Euler equation: because households are equilibrating the marginal utility of consumption today and the marginal utility of one unit of consumption tomorrow by forgoing one unit of consumption today, and the latter is an increasing function of the return on investment $Q_1(P_1 / P)$ (savings today are scaled up tomorrow by the interest rate), so saving for tomorrow suddenly looks less appealing. The increased consumption needs to be supported by increased output and, therefore, increased labor.
     \end{solution}
 	\item How does productivity affect output? Explain intuitively.
 	\begin{solution}
-        Increasing productivity decreases the price of the consumption good $P_1$, so households will want to consume more and save less, due to the Euler equation. Simultaneously, the falling $P_1$ descreases the real interest rate, making savings less appealing, households want to hold less money, so this further increases consumption. Also, the falling $P_1$ increases the real wage $\frac{W_0}{P_1}$, but households are not on their labor supply curve, so this does not affect their decisionmaking. Firms have no trouble meeting the increased demand: this is partially through increased productivity and partially through increased labor demand/supply.
+        Increasing productivity decreases the price of the consumption good $P_1$, so households will want to consume more and save less, due to the Euler equation. Simultaneously, the falling $P_1$ decreases the real interest rate, making investment in bonds less appealing. Then households want to hold more money. Also, the falling $P_1$ increases the real wage $\frac{W_0}{P_1}$, but households are not on their labor supply curve, so this does not affect their decisionmaking. Firms have no trouble meeting the increased demand: this is partially through increased productivity and partially through increased labor demand/supply.
         
-        Overall, higher productivity means lower prices, lower interest rate, higher consumption, higher output, and higher labor.
+        Overall, higher productivity means lower prices, lower interest rate, higher consumption, higher output, higher labor, and more money held.
     \end{solution}
 	\item Derive the labor wedge. Is it procyclical or countercyclical?
 	\begin{solution}
         \begin{align*}
             1 - \tau^N_1 & = \frac{MRS_1}{MPL_1} \\
-            & = \frac{\chi {N_1}^\varphi C_1^\gamma}{(1-\alpha)Y_1/N_1} \\
-            & = \frac{1}{(1-\alpha)} \chi {N_1}^{\varphi+1} C_1^{\gamma-1} \\
-            & = \frac{1}{(1-\alpha)} \chi \left(\frac{C_1}{A_1}\right)^{\varphi+1} C_1^{\gamma-1} \\
-            & = \frac{1}{(1-\alpha)} \chi {A_1}^{-\varphi-1} C_1^{\gamma+\varphi} \\
-            & = \frac{1}{(1-\alpha)} \chi {A_1}^{-\varphi-1} \left(\left(\frac{1}{\beta Q_1} \frac{P A_1}{W_0}\right)^{\frac{1}{\gamma}} C \right)^{\gamma+\varphi} \\
-            & = \frac{1}{(1-\alpha)} \chi A_1^{-\varphi - 1} \left(\frac{1}{\beta Q_1} \frac{P A_1}{W_0}\right)^{1 +\frac{1}{\gamma}}  C^{\gamma+\varphi} \\
-            & = \frac{1}{(1-\alpha)} \chi A_1^{\frac{1}{\gamma}-\varphi} \left(\frac{1}{\beta Q_1} \frac{P}{W_0}\right)^{1 +\frac{1}{\gamma}}  C^{\gamma+\varphi}
+            & = \frac{\chi {N_1}^\varphi C_1^\gamma}{A_1}
         \end{align*}
-        The wedge is procyclical if it increases with $A_1$. Assuming $\gamma, \varphi, \alpha \in (0,1)$, then all those terms in the above equation are positive and then $(1-\tau_1^N)$ is an increasing function of $A_1$. But is the wage $(1-\tau_1^N)$ or just $\tau_1^N$? Assuming it's the latter, then the wedge is decreasing with $A_1$, so it is countercyclical.
+        The wedge is decreasing with $A_1$, so it is countercyclical (assuming that the wedge is defind $1-\tau_1^N$, not just $\tau_1^N$).
     \end{solution}
 	\item What moments of the data would you use to discriminate between the predictions of the sticky price and the sticky wage model?
 	\begin{solution}
